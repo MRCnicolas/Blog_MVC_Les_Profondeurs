@@ -87,14 +87,14 @@ class Admin extends Blog
   /* ========== UPDATE ========== */
 
 
-    public function update(array $aData)
-    {
-      $oStmt = $this->oDb->prepare('UPDATE Posts SET title = :title, body = :body, modifiedDate = NOW() WHERE id = :postId LIMIT 1');
-      $oStmt->bindValue(':postId', $aData['post_id'], \PDO::PARAM_INT);
-      $oStmt->bindValue(':title', $aData['title'], \PDO::PARAM_STR);
-      $oStmt->bindValue(':body', $aData['body'], \PDO::PARAM_LOB);
-      return $oStmt->execute();
-    }
+  public function update(array $aData)
+  {
+    $oStmt = $this->oDb->prepare('UPDATE Posts SET title = :title, body = :body, modifiedDate = NOW() WHERE id = :postId LIMIT 1');
+    $oStmt->bindValue(':postId', $aData['post_id'], \PDO::PARAM_INT);
+    $oStmt->bindValue(':title', $aData['title'], \PDO::PARAM_STR);
+    $oStmt->bindValue(':body', $aData['body'], \PDO::PARAM_LOB);
+    return $oStmt->execute();
+  }
 
 
     public function updateImg($name, $id, $tmp_name)
